@@ -15,4 +15,5 @@ plugin "raw_exec" {
 ' | sudo tee /etc/nomad.d/raw_exec.hcl
 }
 
+mkdir -p /etc/nomad.d
 raw_exec_nomad

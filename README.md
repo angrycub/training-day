@@ -1,23 +1,22 @@
 # training-day
 
-A very NOT-FOR-PROD Docker in Docker Container that will run a Nomad Client. Did I mention that this should not be used anywhere near a production/real use case? Because you definitely shouldn't.
+A very NOT-FOR-PROD Docker in Docker Container that runs a Nomad Client. This should not be used anywhere near a production/real use case. Again, you definitely shouldn't.
 
+## Running stack in Docker
 
-# Running Stack in Docker
+The Dockerfile builds a Ubuntu 18.04 image using the build scripts in this directory.
 
-The Dockerfile will build a ubuntu 16.0.4 image using the build scripts in this directory.
+### Quickstart
 
-## Quickstart 
-
-The following will create a fresh terminal session using the image:
+The following creates a fresh terminal session using the image:
 
 ```shell
-make && docker exec -it katacoda bash
+make && docker exec -it hashistack bash
 ```
 
 > The container is reset each time the make command is run.
 
-# Manual instructions
+## Manual instructions
 
 Use these steps if you prefer to change or update the docker flags.
 
@@ -27,31 +26,30 @@ Built the docker container
 docker build \
          --rm \
          -t \
-         katacoda:latest
+         hashistack:latest
 ```
 
-## Run Katacoda image.
+### Run hashistack container
 
-Launch the katacoda container in the background.
+Launch the hashistack container in the background.
 
 ```shell
 docker run \
   -d \
   -v /var/run/docker.sock:/var/run/docker.sock \
   --name \
-  katacoda \
-  katacoda
+  hashistack \
+  hashistack
 ```
 
 > The -v flag is optional but allows docker (in docker) to use the hosts docker api.
 
-## Run Katacoda scenario
+## Exec to the running container
 
-Connect to the katacoda container for interactive testing.
-
+Connect to the hashistack container for interactive testing.
 
 ```shell
-docker exec -it katacoda bash
+docker exec -it hashistack bash
 ```
 
 ## Resetting the container
@@ -61,13 +59,13 @@ View the running containers
 ```shell
 docker ps
 CONTAINER ID        IMAGE               COMMAND               CREATED             STATUS              PORTS               NAMES
-08a114d9aa4d        5fdc74d879ca        "tail -f /dev/null"   3 minutes ago       Up 3 minutes                            katacoda
+08a114d9aa4d        5fdc74d879ca        "tail -f /dev/null"   3 minutes ago       Up 3 minutes                            hashistack
 ```
 
 Remove the running container
 
 ```shell
-docker rm -f katacoda
+docker rm -f hashistack
 ```
 
-> All session state will be lost.
+> **All session state is destroyed.**

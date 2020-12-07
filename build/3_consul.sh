@@ -14,6 +14,6 @@ then
 fi
 }
 
-echo 'bind_addr = "{{GetInterfaceIP \"ens3\"}}"' | sudo tee /etc/consul.d/network.hcl
+echo 'bind_addr = "{{GetInterfaceIP \"eth0\"}}"' | sudo tee /etc/consul.d/network.hcl
 fix_docker
 

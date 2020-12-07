@@ -1,4 +1,4 @@
-PROJECT="katacoda"
+PROJECT="hashistack"
 
 build: clean
 	@echo "==> Building $(PROJECT) image..."
